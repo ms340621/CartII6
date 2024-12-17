@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Park Accessibility in Hamilton County, Ohio</title>
+<style>
+    html, body{
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+    }
+    #contentDiv{
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+    }
+    #viewDiv{
+        padding: 0;
+        margin: 0;
+        height: 90%;
+        width: 80%;
+        float: right;
+        background-color: black;
+    }
+     #legendDiv{
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 19.5%;
+        float: left;
+        background-color: black;
+        /*color: white;
+        display: block;*/
+         overflow-y: auto;
+        flex-direction: column;
+    }
+    #subtitleDiv1{
+        padding: 0;
+        margin: 0;
+        height: 5%;
+        width: 50%;
+        background-color: black;
+        color: white;
+        font-family: sans-serif, "Helvetica";
+        text-align: center;
+        align-content: center;
+        float: left;
+    }
+    #viewDiv1{
+        padding: 0;
+        margin: 0;
+        height: 45%;
+        width: 49.5%;
+        float: left;
+        background-color: black;
+        color: white;
+    }
+    #subtitleDiv2{
+        padding: 0;
+        margin: 0;
+        height: 5%;
+        width: 50%;
+        background-color: black;
+        color: white;
+        font-family: sans-serif, "Helvetica";
+        text-align: center;
+        align-content: center;
+        float: left;
+    }
+    #viewDiv2{
+        padding: 0;
+        margin: 0;
+        height: 45%;
+        width: 49.5%;
+        float: right;
+        background-color: black;
+        color: white;
+    }
+    #subtitleDiv3{
+        padding: 0;
+        margin: 0;
+        height: 5%;
+        width: 50%;
+        background-color: black;
+        color: white;
+        font-family: sans-serif, "Helvetica";
+        text-align: center;
+        align-content: center;
+        float: left;
+    }
+    #viewDiv3{
+        padding: 0;
+        margin: 0;
+        height: 45%;
+        width: 49.5%;
+        float: left; 
+        background-color: black;
+        color: white;
+    }
+    #subtitleDiv4{
+        padding: 0;
+        margin: 0;
+        height: 5%;
+        width: 50%;
+        background-color: black;
+        color: white;
+        font-family: sans-serif, "Helvetica";
+        text-align: center;
+        align-content: center;
+        float: right;
+    }
+    #viewDiv4{
+        padding: 0;
+        margin: ;
+        height: 45%;
+        width: 49.5%;
+        float: right;
+        background-color: black;
+        color: white;
+    }
+    #titleDiv{
+        padding: 0;
+        margin: 0;
+        height: 10%;
+        width: 100%;
+        float: up;
+        background-color: black;
+        color: white;
+        font-family: serif, "Georgia";
+        font-size: 35px;
+        align-content: center;
+        text-align: center;
+    }
+    .esri-popup .esri-popup-header .esri-title{
+        font-size: 18px;
+        background-color: black;
+    }
+    .esri-popup .esri-popupbody .esri-popup-content{
+        font-size: 14px;
+        background-color: black;
+    }
+   
+
+    </style>
+<link rel="stylesheet" href="https://js.arcgis.com/4.31/esri/themes/dark/main.css">
+<script src="https://js.arcgis.com/4.31">
+    </script>
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/FeatureLayer",
+            "esri/widgets/LayerList"
+        ], function(Map,MapView,FeatureLayer,LayerList){
+            
+
+            
+        var myMap1= new Map ({
+            basemap: "dark-gray",
+            
+        });
+            
+        var myView1 = new MapView ({
+            container: "viewDiv1",
+            map: myMap1,
+            center: [-84.5620, 39.160],
+            scale: 500000
+        });
+            
+        var myMap2= new Map ({
+            basemap: "dark-gray",
+            
+        });
+            
+        var myView2 = new MapView ({
+            container: "viewDiv2",
+            map: myMap2,
+            center: [-84.5620, 39.160],
+            scale: 500000
+        });
+            
+        var myMap3= new Map ({
+            basemap: "dark-gray",
+            
+        });
+            
+        var myView3 = new MapView ({
+            container: "viewDiv3",
+            map: myMap3,
+            center: [-84.5620, 39.160],
+            scale: 500000
+        });
+            
+        var myMap4= new Map ({
+            basemap: "dark-gray",
+            
+        });
+            
+        var myView4 = new MapView ({
+            container: "viewDiv4",
+            map: myMap4,
+            center: [-84.5620, 39.160],
+            scale: 500000
+        });
+        
+        var busstopdeserts = new FeatureLayer ({
+            portalItem:{
+                    id: "449a867aa77244c68c38c3d528a2a11e"
+                }
+            });
+            myMap2.add(busstopdeserts);
+            
+        var tractsoutline = new FeatureLayer ({
+            portalItem:{
+                    id: "7a9f27004cdf4215b26ab241d6beccda"
+                }
+            });
+            myMap1.add(tractsoutline);
+            
+        var tractsoutline2 = new FeatureLayer ({
+            portalItem:{
+                    id: "7a9f27004cdf4215b26ab241d6beccda"
+                }
+            });
+            myMap2.add(tractsoutline2);
+            
+        var greenspace = new FeatureLayer ({
+            portalItem:{
+                    id: "9c36500eac8b4054a33f2fa46d2e421d"
+                }
+            });
+            myMap1.add(greenspace);
+            
+        var greenspace2 = new FeatureLayer ({
+            portalItem:{
+                    id: "9c36500eac8b4054a33f2fa46d2e421d"
+                }
+            });
+            myMap2.add(greenspace2);
+            
+        var vehicleownership = new FeatureLayer ({
+            portalItem:{
+                    id: "7e5955df935b43bdb346105422730d0a"
+                }
+            });
+            myMap3.add(vehicleownership);
+            
+        var busstops = new FeatureLayer ({
+            portalItem:{
+                    id: "1b6cfa432cac4ca489dc64f895b0b79d"
+                }
+            });
+            myMap1.add(busstops);
+            
+        var medincome = new FeatureLayer ({
+            portalItem:{
+                    id: "0e0bea7c1fde493e9a75be9350222263"
+                }
+            });
+            myMap4.add(medincome);
+    
+    const layerlistsContainer = document.createElement("div");
+        document.getElementById("legendDiv").appendChild(layerlistsContainer);
+            
+        const layerlists = [
+            new LayerList({
+                view: myView1,
+                listItemCreatedFunction: function(event){
+                    const item = event.item;
+                    if (item.layer.type !="group"){
+                        item.panel = {
+                            content: "legend",
+                            open: true,
+                        };
+                    }
+                }
+            }),
+        new LayerList({
+            view: myView2,
+                listItemCreatedFunction: function(event){
+                    const item = event.item;
+                    if (item.layer.type !="group"){
+                        item.panel = {
+                            content: "legend",
+                            open: true,
+                        };
+                    }
+                }
+            }),
+        new LayerList({
+            view: myView3,
+                listItemCreatedFunction: function(event){
+                    const item = event.item;
+                    if (item.layer.type !="group"){
+                        item.panel = {
+                            content: "legend",
+                            open: true,
+                        };
+                    }
+                }
+            }),
+            
+        new LayerList({
+            view: myView4,
+                listItemCreatedFunction: function(event){
+                    const item = event.item;
+                    if (item.layer.type !="group"){
+                        item.panel = {
+                            content: "legend",
+                            open: true,
+                        };
+                    }
+                }
+            }),
+            
+        ];
+            layerlists.forEach(layerlist => {
+            const container = document.createElement("div");
+            layerlistsContainer.appendChild(container);
+            layerlist.container = container;
+                
+            });
+            
+        
+            const views = [myView1, myView2, myView3, myView4];
+            let active;
+
+            const sync = (source) => {
+                if (!active || !active.viewpoint || active !== source) {
+                return; 
+            }
+
+            for (const view of views) {
+                if (view !== active) {
+                view.viewpoint = active.viewpoint;
+                    }
+                }
+            };
+
+
+            for (const view of views) {
+                view.watch(["interacting", "animation"], () => {
+                active = view; 
+                sync(active); 
+                });
+
+
+            view.watch("viewpoint", () => sync(view));
+                }
+            
+        });
+         
+        
+    </script>
+    </head>
+    
+    <body>
+        <div id = "contentDiv">
+        <div id = "titleDiv">Accessibility of Parks and Greenspace in Hamilton County, Ohio</div>
+        <div id = "legendDiv"></div>
+             
+        <div id = "viewDiv">
+            <div id = "subtitleDiv1">Public Transit Stops</div>
+            <div id = "subtitleDiv2">Public Transit Deserts</div>
+            <div id = "viewDiv2"></div>
+            <div id = "viewDiv1"></div>
+            <div id = "subtitleDiv3">Households that do not Own a Vehicle</div>
+            <div id = "subtitleDiv4">Median Household Income</div>
+            <div id = "viewDiv4"></div>
+            <div id = "viewDiv3"></div>
+            </div>
+        </div>
+        
+    </body>
+    </html>
